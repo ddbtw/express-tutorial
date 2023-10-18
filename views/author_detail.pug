@@ -1,0 +1,46 @@
+extends layout
+block content
+
+  h1 Autor: #{author.name}
+  p #{author.lifespan}
+
+  div(style='margin-left:20px;margin-top:20px')
+    h4 Livros
+    dl
+    each book in author_books
+      dt
+        a(href=book.url) #{book.title}
+      dd #{book.summary}
+    else
+      p Esse autor não possui livros publicados.
+
+  hr
+  p
+    a(href=author.url+'/delete') Deletar autor
+  p
+    a(href=author.url+'/update') Atualizar autor
+
+
+block content
+
+  h1 Autor: #{author.name}
+  p #{author.lifespan}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Livros
+
+    dl
+    each book in author_books
+      dt
+        a(href=book.url) #{book.title}
+      dd #{book.summary}
+
+    else
+      p Esse autor não possui livros publicados.
+
+  hr
+  p
+    a(href=author.url+'/delete') Deletar autor
+  p
+    a(href=author.url+'/update') Atualização

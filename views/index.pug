@@ -1,0 +1,17 @@
+extends layout
+block content
+
+  p Atividade do Joedio
+
+  h1 Bem-vindo à biblioteca da dudão
+
+  blockquote  "Em uma boa biblioteca, você sente, de alguma forma misteriosa, que você está absorvendo, através da pele, a sabedoria contida em todos aqueles livros, mesmo sem abri-los." - Mark Twain
+
+  p Essa biblioteca possui os seguintes conteúdos:
+
+  ul
+    li #[strong Livros:] !{book_count}
+    li #[strong Cópias:] !{book_instance_count}
+    li #[strong Cópias disponíveis:] !{book_instance_available_count}
+    li #[strong Autores:] !{author_count}
+    li #[strong Gêneros:] !{genre_count}

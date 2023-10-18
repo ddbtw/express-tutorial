@@ -1,0 +1,10 @@
+extends layout
+block content
+
+  ul
+    each val in list_genres
+      li
+        a(href=val.url) #{val.name}
+
+    else
+      li Não há gêneros cadastrados.

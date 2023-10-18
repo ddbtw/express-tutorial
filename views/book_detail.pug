@@ -1,0 +1,55 @@
+extends layout
+block content
+
+
+  h1 Título: #{book.title}
+
+  p
+    strong Autor:
+    a(href=book.author.url) #{book.author.name}
+
+  p
+    strong Sumário:
+    | #{book.summary}
+
+  p
+    strong ISBN:
+    | #{book.isbn}
+
+  p
+    strong Gênero:
+    each val, index in book.genre
+      a(href=val.url) #{val.name}
+      if index < book.genre.length - 1
+        |,
+
+  div(style='margin-left:20px;margin-top:20px')
+    h4 Cópias
+
+    each val in book_instances
+      hr
+      if val.status=='Available'
+        p.text-success #{val.status}
+      else if val.status=='Maintenance'
+        p.text-danger #{val.status}
+      else
+        p.text-warning #{val.status}
+      p
+        strong imprimir:
+        | #{val.imprint}
+      if val.status!='Available'
+        p
+          strong devolver:
+          | #{val.due_back}
+      p
+        strong Id:
+        a(href=val.url) #{val._id}
+
+    else
+      p Não há cópias desse livro nessa biblioteca.
+
+  hr
+  p
+    a(href=book.url+'/delete') deletar livro
+  p
+    a(href=book.url+'/update') atualizar livro
